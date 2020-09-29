@@ -17,8 +17,11 @@ else
 fi
 
 empname=emp
+echo "Calculate wages for Month"
 echo "Enter number of working days "
 read num
+
+num=20
 
 for((day=1;day<=$num;day++))
 do
