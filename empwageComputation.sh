@@ -18,7 +18,7 @@ fi
 
 empname=emp
 echo "Calculate wages for Month"
-
+echo "Dailywages             TotalWages"
 getWorkhours ( ){
 days=$1
 emphrs=$2
@@ -36,9 +36,9 @@ do
 			;;
 		esac
 		salary=$(( $emphrs*$wageperhour ))
-		echo "Salary of $empname on the day $days is $salary"
 		Totalsal=$(($Totalsal + $salary ))
 		((days++))
+		echo "$salary                       $Totalsal"
 done
 }
 days=1
