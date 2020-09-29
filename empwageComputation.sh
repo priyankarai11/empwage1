@@ -2,8 +2,12 @@
 echo "welcome to computation problem"
 ispresent=1
 wageperhour=20
-hoursperday=8
-parttimehoursperday=4
+salary=0
+Totalsal=0
+Fulltime=1
+Parttime=2
+
+
 randomCheck=$((RANDOM%2));
 if [ $ispresent -eq $randomCheck ]
 then
@@ -12,10 +16,26 @@ else
 	echo "Employee is absent"
 fi
 
-echo "Calculating daily wage of employee"
-wageperday=$((20*8))
-echo "Daily employee wage $wageperday"
+empname=emp
+echo "Enter number of working days "
+read num
 
-echo "Calculating part time employee and wage"
-ParttimeWageperday=$(($wageperhour*$parttimehoursperday))
-echo "Part time employee Daily wage $ParttimeWageperday"
+for((day=1;day<=$num;day++))
+do
+	employeecheck=$((1+RANDOM%2))
+	case $employeecheck in
+		$Fulltime)
+			empname=FulltimeEmployee
+			emphrs=8
+			;;
+		$Parttime)
+			empname=ParttimeEmployee
+			emphrs=4
+			;;
+		esac
+		salary=$(( $emphrs*$wageperhour ))
+		echo "Salary of $empname on the day $day is $salary"
+		Totalsal=$(($Totalsal + $salary ))
+done
+echo "Total Salary =$Totalsal"
+
