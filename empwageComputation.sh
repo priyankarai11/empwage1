@@ -18,12 +18,10 @@ fi
 
 empname=emp
 echo "Calculate wages for Month"
-echo "Enter number of working days "
-read num
 
-days=1
-emphrs=0
-
+getWorkhours ( ){
+days=$1
+emphrs=$2
 while [[ $days -le 20 || $emphrs -le 100 ]]
 do
 	employeecheck=$((1+RANDOM%2))
@@ -42,5 +40,9 @@ do
 		Totalsal=$(($Totalsal + $salary ))
 		((days++))
 done
+}
+days=1
+emphrs=0
+getWorkhours $days $emphrs
 echo "Total Salary =$Totalsal"
-
+echo "Working hours =$emphrs"
